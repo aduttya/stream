@@ -1,0 +1,15 @@
+{
+  "name": "stream",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@opensea/stream-js": "^0.0.21-rc.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.1",
+    "ws": "^8.8.1"
+  },
+  "scripts": {
+    "start": "node script.js"
+  }
+}
