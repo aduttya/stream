@@ -29,65 +29,7 @@ async function build_object(event,schema){
 
 
 }
-async function testing(){
 
-    console.log("in testing")
-
-    let schema = {
-        name: "",
-        image_url : "",
-        slug :"",
-        transaction : {
-            transactionHash:"",
-            timestamp:"",
-            from_account:"",
-            to_account:"",
-            payment_token:"",
-            total_price:""
-        }
-    }
-
-    let event = {
-        event_type: 'item_sold',
-         payload: { 
-            closing_date: '2022-09-19T06:06:59.000000+00:00',
-            collection: { slug: 'posersnft' },
-            event_timestamp: '2022-09-19T06:06:59.000000+00:00',
-            is_private: false,
-            item: {
-                chain: [Object],
-                metadata: {
-                    "name": "Doodle #222",
-                    "description": "A community-driven collectibles project featuring art by Burnt Toast. Doodles come...",
-                    "image_url": "https://lh3.googleusercontent.com/R7wtoDNdmM7GhTvVjr4JGA6q60z44Hn2nIymPjAEXcjnD8oBPxQYPA1GkrCnvepPM1Sc8DlIHZql4Yucj4ger1jnWmxmuRFwIC_JRw",
-                    "animation_url": null,
-                    "metadata_url": "https://opensea.mypinata.cloud/ipfs/QmPMc4tcBsMqLRuCQtPmPe84bpSjrC3Ky7t3JWuHXYB4aS/222",
-                },
-                nft_id: 'ethereum/0x02beed1404c69e62b76af6dbdae41bd98bca2eab/45',
-                permalink: 'https://opensea.io/assets/ethereum/0x02beed1404c69e62b76af6dbdae41bd98bca2eab/45'  
-            },
-            listing_type: null, 
-            maker: { address: '0x7c9519f7ad1a92d4df8d5d580157b6d191e53247' },
-            order_hash: '0xb7a08f22d60c99143c35f32b4b214e02a46c4c0062fc1a1e53dbb1071e08d68f',
-            payment_token: {
-                address: '0x0000000000000000000000000000000000000000',
-                decimals: 18, 
-                eth_price: '1.000000000000000',
-                name: 'Ether',
-                symbol: 'ETH',
-                usd_price: '1308.039999999999964000'},
-            quantity: 1,
-            sale_price: '250000000000000000',
-            taker: { address: '0x464e3b767494b788b39f632a219cde5266a6e8b3' },
-            transaction: { 
-                hash: '0x6eb845f8184aa8c102db3f5e6b1d96db9aed8dfc5f60c53e429f1b12708701a5',
-                timestamp: '2022-09-19T06:06:59.000000+00:00'}
-            },
-    }
-    await build_object(event,schema)
-
-    console.log("this is : ",schema)
-}
 async function main() {
 
   let list = ["kumaleon-nft","8pes-dvnci","posersnft","emoheads","akyllersden"];
@@ -126,6 +68,7 @@ async function main() {
       try {
         // update the status of collection in database
             await EventModel.create(schema)
+            // console.log(schema)
             console.log("event saved successfully")
       } catch (err) {
         console.log(err);
@@ -136,5 +79,4 @@ async function main() {
 
 main();
 
-// testing()
 
